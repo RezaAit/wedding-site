@@ -1,0 +1,48 @@
+.bar {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9000;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(30,5,51,0.92);
+  border: 1.5px solid rgba(236,72,153,0.4);
+  border-radius: 50px; padding: 10px 16px 10px 12px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(147,51,234,0.35), 0 2px 8px rgba(0,0,0,0.3);
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+.barVisible {
+  opacity: 1; transform: translateY(0);
+  pointer-events: all;
+}
+.iconWrap {
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.note { display: block; transition: transform 0.3s; }
+.noteAnimate {
+  animation: noteSway 0.8s ease-in-out infinite alternate;
+}
+@keyframes noteSway {
+  from { transform: scale(0.85) rotate(-12deg); }
+  to   { transform: scale(1.1)  rotate( 12deg); }
+}
+.info {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.title { font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; }
+.sub   { font-size: 10px; color: rgba(255,255,255,0.45); white-space: nowrap; }
+.btn {
+  width: 30px; height: 30px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,0.1); font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.15s; flex-shrink: 0; color: #fff;
+}
+.btn:hover { background: rgba(255,255,255,0.22); transform: scale(1.12); }
+.btnActive { background: linear-gradient(135deg,#9333ea,#ec4899) !important; }
+
+@media (max-width: 480px) {
+  .bar { bottom: 16px; right: 16px; padding: 8px 12px 8px 10px; gap: 8px; }
+  .info { display: none; }
+}

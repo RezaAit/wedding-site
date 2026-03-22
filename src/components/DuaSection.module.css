@@ -1,0 +1,248 @@
+.wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+
+/* ── FORM ── */
+.form {
+  display: flex; flex-direction: column; gap: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(236,72,153,0.2);
+  border-radius: 22px; padding: 28px 24px;
+  position: relative; overflow: hidden;
+}
+.form::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg,#9333ea,#ec4899,#f59e0b,#ec4899,#9333ea);
+  background-size: 200%; animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.formRow { display: flex; gap: 14px; flex-wrap: wrap; }
+.formRow .field { flex:1; min-width: 180px; }
+
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: 13px; font-weight: 700; color: #f472b6; letter-spacing: 0.5px; }
+.field input, .field select, .field textarea {
+  font-family: 'Noto Serif Bengali', serif; font-size: 14px;
+  padding: 12px 16px; border: 1.5px solid rgba(236,72,153,0.2);
+  border-radius: 12px; background: rgba(255,255,255,0.06);
+  color: #fff; outline: none; resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.3); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: #ec4899; box-shadow: 0 0 0 3px rgba(236,72,153,0.15);
+}
+.field select option { background: #1e0533; color: #fff; }
+.field input:disabled, .field select:disabled, .field textarea:disabled { opacity: 0.6; }
+
+/* ── TEMPLATES ── */
+.templateLabel { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: -4px; }
+.templates { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(236,72,153,0.3);
+  background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65);
+  cursor: pointer; transition: all 0.18s; font-family: 'Noto Serif Bengali', serif;
+  white-space: nowrap;
+}
+.chip:hover { border-color: #ec4899; color: #fff; background: rgba(236,72,153,0.1); }
+.chipActive {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 4px 16px rgba(147,51,234,0.35);
+}
+
+.templatePreview {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: rgba(147,51,234,0.1); border: 1px solid rgba(147,51,234,0.25);
+  border-radius: 12px; padding: 14px 16px;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
+.tpIcon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.templatePreview p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.8; }
+
+.btn {
+  font-family: 'Noto Serif Bengali', serif; font-size: 15px; font-weight: 700;
+  padding: 15px; border-radius: 50px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #9333ea, #ec4899); color: #fff;
+  box-shadow: 0 4px 20px rgba(147,51,234,0.35);
+  transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(147,51,234,0.5);
+}
+.btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* ── LIST ── */
+.duaList { display: flex; flex-direction: column; gap: 12px; }
+.listTitle {
+  font-size: 18px; font-weight: 700; color: #f472b6;
+  margin-bottom: 8px; text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.count {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  color: #fff; font-size: 12px; font-weight: 700;
+  padding: 2px 10px; border-radius: 20px;
+}
+.loader { display: flex; justify-content: center; gap: 8px; padding: 24px; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  animation: bounce 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%,80%,100%{transform:scale(0.7);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+.empty { text-align: center; padding: 28px; color: rgba(255,255,255,0.35); font-size: 14px; }
+
+.duaCard {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(236,72,153,0.15);
+  border-radius: 16px; padding: 18px;
+  animation: slideIn 0.4s ease both;
+}
+@keyframes slideIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+.duaAvatar {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; font-weight: 700; color: #fff;
+}
+.duaBody { flex: 1; min-width: 0; }
+.duaHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 4px; }
+.duaName { font-size: 14px; font-weight: 700; color: #fff; }
+.duaTime { font-size: 11px; color: rgba(255,255,255,0.35); }
+.duaText { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.8; }
+
+/* ══════════════════════════════
+   THANK YOU POPUP
+══════════════════════════════ */
+.popupOverlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,4,18,0.85);
+  display: flex; align-items: center; justify-content: center;
+  animation: overlayIn 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+@keyframes overlayIn { from{opacity:0} to{opacity:1} }
+
+.popup {
+  position: relative; max-width: 420px; width: 90%;
+  background: linear-gradient(160deg, #1e0533 0%, #3b0764 50%, #1e0533 100%);
+  border: 1.5px solid rgba(236,72,153,0.35);
+  border-radius: 28px; padding: 48px 32px 40px;
+  text-align: center; overflow: hidden;
+  animation: popupIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  box-shadow:
+    0 0 0 1px rgba(147,51,234,0.2),
+    0 24px 80px rgba(147,51,234,0.4),
+    0 8px 32px rgba(236,72,153,0.3);
+}
+@keyframes popupIn {
+  from { opacity:0; transform: scale(0.7) translateY(30px); }
+  to   { opacity:1; transform: scale(1) translateY(0); }
+}
+.popup::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background: linear-gradient(90deg,#9333ea,#ec4899,#f59e0b,#ec4899,#9333ea);
+  background-size:200%; animation: shimmer 2s linear infinite;
+}
+.popup::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(147,51,234,0.25) 0%, transparent 60%);
+}
+
+/* Floating hearts */
+.popupHearts { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.popupHeart {
+  position:absolute; bottom:-20px;
+  left: calc(5% + var(--i,0) * 12%);
+  font-size: calc(14px + var(--i,0) * 2px);
+  animation: heartFloat calc(2.5s + var(--i,0) * 0.3s) ease-out calc(var(--i,0) * 0.15s) infinite;
+  opacity: 0;
+}
+@keyframes heartFloat {
+  0%   { transform: translateY(0) rotate(-10deg); opacity:0; }
+  15%  { opacity: 0.9; }
+  85%  { opacity: 0.4; }
+  100% { transform: translateY(-300px) rotate(20deg); opacity:0; }
+}
+
+.popupIcon {
+  font-size: 64px; margin-bottom: 16px; position: relative; z-index: 1;
+  animation: iconBounce 1s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+  filter: drop-shadow(0 4px 16px rgba(236,72,153,0.5));
+}
+@keyframes iconBounce {
+  from { opacity:0; transform: scale(0.3) rotate(-20deg); }
+  to   { opacity:1; transform: scale(1) rotate(0deg); }
+}
+
+.popupTitle {
+  font-size: 26px; font-weight: 700; margin-bottom: 6px;
+  background: linear-gradient(135deg, #f472b6, #fcd34d, #f472b6);
+  background-size: 200%; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  animation: gradientShift 3s ease infinite, slideUp 0.5s ease 0.4s both;
+  position: relative; z-index: 1;
+}
+@keyframes gradientShift { 0%,100%{background-position:0%} 50%{background-position:100%} }
+@keyframes slideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+
+.popupName {
+  font-size: 18px; font-weight: 700; color: #c084fc;
+  margin-bottom: 16px; position: relative; z-index: 1;
+  animation: slideUp 0.5s ease 0.5s both;
+}
+
+.popupMsg {
+  font-size: 14px; color: rgba(255,255,255,0.75); line-height: 2;
+  margin-bottom: 18px; position: relative; z-index: 1;
+  animation: slideUp 0.5s ease 0.6s both;
+}
+
+.popupDua {
+  font-size: 20px; color: #fcd34d; letter-spacing: 2px;
+  margin-bottom: 28px; position: relative; z-index: 1;
+  text-shadow: 0 0 20px rgba(252,211,77,0.5);
+  animation: slideUp 0.5s ease 0.7s both;
+}
+
+.popupBtn {
+  position: relative; z-index: 1;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 16px; font-weight: 700;
+  padding: 14px 48px; border-radius: 50px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #9333ea, #ec4899, #f59e0b);
+  background-size: 200%; color: #fff;
+  box-shadow: 0 4px 24px rgba(147,51,234,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: slideUp 0.5s ease 0.8s both, gradientShift 3s ease infinite;
+}
+.popupBtn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 36px rgba(147,51,234,0.6);
+}
+
+/* ── Load More ── */
+.loadMoreWrap { display:flex; justify-content:center; margin-top:8px; }
+.loadMoreBtn {
+  font-family:"Noto Serif Bengali",serif; font-size:14px; font-weight:700;
+  padding:13px 36px; border-radius:50px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#9333ea,#ec4899); color:#fff;
+  box-shadow:0 4px 20px rgba(147,51,234,0.3);
+  transition:transform 0.2s,box-shadow 0.2s,opacity 0.2s;
+  display:flex; align-items:center; gap:6px;
+}
+.loadMoreBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 28px rgba(147,51,234,0.45);}
+.loadMoreBtn:disabled{opacity:0.7;cursor:not-allowed;}
+.btnDot{
+  width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.8);
+  animation:btnBounce 1.2s ease-in-out infinite;
+}
+.btnDot:nth-child(2){animation-delay:0.2s;}
+.btnDot:nth-child(3){animation-delay:0.4s;}
+@keyframes btnBounce{0%,80%,100%{transform:scale(0.7);opacity:0.4}40%{transform:scale(1);opacity:1}}
+

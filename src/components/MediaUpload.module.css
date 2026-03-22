@@ -1,0 +1,135 @@
+.wrap { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+/* Upload note banner */
+.uploadNote {
+  display: flex; gap: 14px; align-items: center;
+  background: rgba(147,51,234,0.1); border: 1.5px solid rgba(147,51,234,0.25);
+  border-radius: 14px; padding: 16px 20px;
+}
+.uploadNoteIcon { font-size: 28px; flex-shrink: 0; }
+.uploadNoteTitle { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.uploadNoteTitle strong { color: #c084fc; }
+.uploadNoteSub { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.dropZone {
+  border: 2px dashed rgba(236,72,153,0.4); border-radius: 18px;
+  padding: 36px 24px; text-align: center; cursor: pointer;
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.dropZone:hover { border-color: #ec4899; background: rgba(236,72,153,0.07); }
+.dragOver { border-color: #9333ea; background: rgba(147,51,234,0.1); transform: scale(1.01); }
+.uploading { opacity: 0.7; cursor: not-allowed; }
+.dropIcon { font-size: 42px; margin-bottom: 10px; }
+.dropText { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.dropSub { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+.sectionLabel {
+  font-size: 14px; font-weight: 700; color: #f472b6;
+  padding: 4px 0; margin-top: 4px;
+}
+
+.urlRow { display: flex; gap: 10px; }
+.urlInput {
+  flex: 1; font-family: 'Noto Serif Bengali', serif; font-size: 13px;
+  padding: 12px 16px; border: 1.5px solid rgba(236,72,153,0.2);
+  border-radius: 12px; background: rgba(255,255,255,0.05);
+  color: #fff; outline: none; transition: border-color 0.2s;
+}
+.urlInput::placeholder { color: rgba(255,255,255,0.3); }
+.urlInput:focus { border-color: #ec4899; }
+.urlBtn {
+  font-family: 'Noto Serif Bengali', serif; font-size: 14px; font-weight: 700;
+  padding: 12px 22px; border-radius: 12px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #9333ea, #ec4899); color: #fff;
+  white-space: nowrap; transition: opacity 0.2s, transform 0.15s;
+}
+.urlBtn:hover { opacity: 0.9; transform: translateY(-1px); }
+.error { font-size: 13px; color: #f87171; }
+
+.loadRow { display: flex; justify-content: center; gap: 8px; padding: 20px; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  animation: bounce 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%,80%,100%{transform:scale(0.7);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+
+.emptyNote { text-align: center; color: rgba(255,255,255,0.25); font-size: 13px; padding: 16px 0; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+.card {
+  position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1;
+  cursor: pointer; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(236,72,153,0.15);
+  transition: transform 0.25s, box-shadow 0.25s;
+  animation: fadeIn 0.4s ease both;
+}
+@keyframes fadeIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:none} }
+.card:hover { transform: scale(1.04); box-shadow: 0 10px 36px rgba(147,51,234,0.3); }
+
+.thumb { width: 100%; height: 100%; object-fit: cover; display: block; }
+.videoThumb, .fbThumb {
+  width: 100%; height: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; position: relative;
+  background: rgba(147,51,234,0.12);
+}
+.playIcon {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 34px; color: rgba(255,255,255,0.9); background: rgba(0,0,0,0.3);
+  transition: background 0.2s;
+}
+.card:hover .playIcon { background: rgba(0,0,0,0.5); }
+.ytBadge {
+  position: absolute; bottom: 0; left: 0; right: 0; text-align: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+  background: rgba(255,0,0,0.75); padding: 5px 0;
+}
+.cardName {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  font-size: 11px; color: #fff; text-align: center;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  padding: 18px 6px 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.lightbox {
+  position: fixed; inset: 0; background: rgba(10,4,18,0.95); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  animation: lbIn 0.2s ease;
+}
+@keyframes lbIn { from{opacity:0} to{opacity:1} }
+.lbClose {
+  position: absolute; top: 20px; right: 24px;
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(236,72,153,0.3);
+  color: #fff; width: 40px; height: 40px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.lbClose:hover { background: rgba(236,72,153,0.25); }
+.lbInner { max-width: 90vw; max-height: 88vh; text-align: center; }
+.lbMedia { max-width: 100%; max-height: 82vh; border-radius: 14px; object-fit: contain; }
+.lbFrame { width: 80vw; max-width: 900px; height: 50vw; max-height: 506px; border-radius: 14px; border: none; }
+
+/* ── Load More ── */
+.loadMoreWrap { display:flex; justify-content:center; margin-top:8px; }
+.loadMoreBtn {
+  font-family:"Noto Serif Bengali",serif; font-size:14px; font-weight:700;
+  padding:13px 36px; border-radius:50px; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#9333ea,#ec4899); color:#fff;
+  box-shadow:0 4px 20px rgba(147,51,234,0.3);
+  transition:transform 0.2s,box-shadow 0.2s,opacity 0.2s;
+  display:flex; align-items:center; gap:6px;
+}
+.loadMoreBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 28px rgba(147,51,234,0.45);}
+.loadMoreBtn:disabled{opacity:0.7;cursor:not-allowed;}
+.btnDot{
+  width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.8);
+  animation:btnBounce 1.2s ease-in-out infinite;
+}
+.btnDot:nth-child(2){animation-delay:0.2s;}
+.btnDot:nth-child(3){animation-delay:0.4s;}
+@keyframes btnBounce{0%,80%,100%{transform:scale(0.7);opacity:0.4}40%{transform:scale(1);opacity:1}}
+

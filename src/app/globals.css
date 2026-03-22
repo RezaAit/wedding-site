@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Great+Vibes&display=swap');
+
+:root {
+  --deep:   #0a0412;
+  --deep2:  #1e0533;
+  --purple: #6b21a8;
+  --purple2:#9333ea;
+  --pink:   #ec4899;
+  --pink2:  #f472b6;
+  --rose:   #e11d48;
+  --gold:   #f59e0b;
+  --gold2:  #fcd34d;
+  --cream:  #fdf4ff;
+  --soft:   #fce7f3;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{scroll-behavior:smooth;background:#0a0412;margin:0;padding:0;}
+body{font-family:'Noto Serif Bengali',serif;background:#0a0412;color:var(--deep);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(236,72,153,0.25)}
+

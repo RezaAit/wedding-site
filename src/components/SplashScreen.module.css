@@ -1,0 +1,309 @@
+/* ══ SPLASH OVERLAY ══ */
+.splash {
+  position: fixed; inset: 0; z-index: 99999;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, #0a0412 0%, #1e0533 30%, #3b0764 55%, #1e0533 80%, #0a0412 100%);
+  overflow: hidden;
+  animation: splashIn 0.6s ease both;
+  cursor: pointer;
+}
+@keyframes splashIn { from{opacity:0} to{opacity:1} }
+
+.closing {
+  animation: splashOut 1s cubic-bezier(0.4,0,0.2,1) both !important;
+}
+@keyframes splashOut {
+  0%   { opacity:1; transform:scale(1); }
+  40%  { opacity:1; transform:scale(1.04); }
+  100% { opacity:0; transform:scale(1.08); }
+}
+
+/* ══ PARTICLES ══ */
+.particles { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.particle {
+  position: absolute;
+  bottom: -10px;
+  left: var(--x, 50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236,72,153,0.8), rgba(147,51,234,0.4));
+  animation: particleRise calc(6s + var(--d,0s)) ease-in infinite;
+  animation-delay: var(--d, 0s);
+  transform: scale(var(--s, 1));
+}
+@keyframes particleRise {
+  0%   { transform:translateY(0) scale(var(--s,1)); opacity:0; }
+  10%  { opacity:0.8; }
+  90%  { opacity:0.3; }
+  100% { transform:translateY(-110vh) scale(calc(var(--s,1)*0.3)); opacity:0; }
+}
+
+/* ══ PETALS ══ */
+.petals { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.petal {
+  position: absolute;
+  bottom: -20px;
+  left: var(--x, 50%);
+  font-size: var(--fs, 18px);
+  animation: petalFloat calc(5s + var(--i,0) * 0.6s) ease-in calc(var(--i,0) * 0.4s) infinite;
+  opacity: 0;
+}
+@keyframes petalFloat {
+  0%   { transform:translateY(0) rotate(0deg);   opacity:0; }
+  12%  { opacity:0.9; }
+  85%  { opacity:0.4; }
+  100% { transform:translateY(-105vh) rotate(360deg); opacity:0; }
+}
+
+/* ══ CONTENT ══ */
+.content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 40px 24px;
+  max-width: 560px; width: 100%;
+  animation: contentIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+}
+@keyframes contentIn {
+  from { opacity:0; transform:translateY(30px) scale(0.96); }
+  to   { opacity:1; transform:none; }
+}
+
+.bismillah {
+  font-size: 20px; color: #fcd34d;
+  letter-spacing: 3px; margin-bottom: 16px; opacity: 0.9;
+  text-shadow: 0 0 20px rgba(252,211,77,0.4);
+  animation: fadeDown 0.6s ease 0.5s both;
+}
+@keyframes fadeDown { from{opacity:0;transform:translateY(-12px)} to{opacity:0.9;transform:none} }
+
+.ornRow {
+  display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:20px;
+  animation: fadeDown 0.6s ease 0.6s both;
+}
+.ornLine {
+  display:block; height:1px; width:70px;
+  background: linear-gradient(90deg, transparent, rgba(236,72,153,0.6), transparent);
+}
+.ornStar { color:#f59e0b; font-size:20px; animation:spinStar 8s linear infinite; }
+@keyframes spinStar { to{transform:rotate(360deg)} }
+
+/* ══ BIG HEART ══ */
+.heartWrap {
+  position:relative; width:110px; height:110px;
+  display:flex; align-items:center; justify-content:center;
+  margin: 0 auto 18px;
+}
+.heartBig {
+  font-size: 80px; line-height:1; position:relative; z-index:1;
+  background: linear-gradient(135deg,#f472b6,#e11d48);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  filter: drop-shadow(0 0 24px rgba(236,72,153,0.7));
+  animation: heartbeat 1.3s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%,100%{transform:scale(1)}
+  14%{transform:scale(1.28)}
+  28%{transform:scale(1.1)}
+  42%{transform:scale(1.22)}
+}
+.ring1 {
+  position:absolute; inset:-8px; border-radius:50%;
+  border:2px solid rgba(236,72,153,0.4);
+  animation:ringPulse 1.8s ease-in-out infinite;
+}
+.ring2 {
+  position:absolute; inset:-22px; border-radius:50%;
+  border:1.5px solid rgba(147,51,234,0.25);
+  animation:ringPulse 1.8s ease-in-out infinite 0.4s;
+}
+.ring3 {
+  position:absolute; inset:-38px; border-radius:50%;
+  border:1px solid rgba(236,72,153,0.12);
+  animation:ringPulse 1.8s ease-in-out infinite 0.8s;
+}
+@keyframes ringPulse { 0%,100%{transform:scale(1);opacity:0.5} 50%{transform:scale(1.2);opacity:0} }
+
+.label {
+  font-size:15px; letter-spacing:5px; color:rgba(255,255,255,0.5);
+  margin-bottom:12px; font-style:italic;
+  animation: fadeUp 0.5s ease 0.7s both;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+
+/* ══ NAMES ══ */
+.names {
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  margin-bottom:20px;
+  animation: fadeUp 0.5s ease 0.8s both;
+}
+.groomName {
+  font-size: clamp(22px,5vw,36px); font-weight:900; display:block;
+  background: linear-gradient(270deg,#f9a8d4,#c084fc,#818cf8,#60a5fa,#c084fc,#f9a8d4);
+  background-size:300%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation: nameGrad 4s ease infinite;
+  filter: drop-shadow(0 2px 12px rgba(192,132,252,0.4));
+}
+.brideName {
+  font-size: clamp(22px,5vw,36px); font-weight:900; display:block;
+  background: linear-gradient(270deg,#fcd34d,#fb923c,#f472b6,#e879f9,#f472b6,#fcd34d);
+  background-size:300%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation: nameGrad 4s ease infinite 0.5s;
+  filter: drop-shadow(0 2px 12px rgba(244,114,182,0.4));
+}
+@keyframes nameGrad { 0%,100%{background-position:0%} 50%{background-position:100%} }
+.amp {
+  font-size:32px; display:block;
+  background:linear-gradient(135deg,#f472b6,#e11d48);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation:heartbeat 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 2px 10px rgba(236,72,153,0.6));
+  margin:2px 0;
+}
+
+/* ══ DATE ══ */
+.dateRow {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  flex-wrap:wrap; margin-bottom:20px;
+  animation: fadeUp 0.5s ease 0.9s both;
+}
+.dateItem {
+  display:flex; align-items:center; gap:6px;
+  font-size:13px; color:rgba(255,255,255,0.65);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px; padding:6px 14px;
+}
+.dateIcon { font-size:14px; }
+.dateDot  { color:rgba(255,255,255,0.25); font-size:18px; }
+
+/* ══ DIVIDER ══ */
+.divider {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-bottom:28px;
+  animation: fadeUp 0.5s ease 1s both;
+}
+.divider span:first-child,.divider span:last-child {
+  display:block; height:1px; width:50px;
+  background:linear-gradient(90deg,transparent,rgba(236,72,153,0.4),transparent);
+}
+.diamond {
+  width:6px; height:6px; background:#ec4899;
+  transform:rotate(45deg); display:block;
+  box-shadow:0 0 8px rgba(236,72,153,0.6);
+}
+
+/* ══ ENTER BUTTON ══ */
+.enterBtn {
+  position:relative; border:none; cursor:pointer; background:none;
+  padding:0; margin-bottom:16px;
+  animation: fadeUp 0.5s ease 1.1s both;
+}
+.enterBtnInner {
+  display:block; position:relative; z-index:1;
+  font-family:'Noto Serif Bengali',serif;
+  font-size:18px; font-weight:700;
+  padding:18px 52px; border-radius:50px;
+  background:linear-gradient(135deg,#9333ea,#ec4899,#f59e0b);
+  background-size:200%;
+  color:#fff; letter-spacing:0.5px;
+  animation:btnGrad 3s ease infinite;
+  box-shadow:
+    0 0 0 1px rgba(236,72,153,0.3),
+    0 8px 32px rgba(147,51,234,0.5),
+    0 4px 16px rgba(236,72,153,0.3);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+@keyframes btnGrad { 0%,100%{background-position:0%} 50%{background-position:100%} }
+.enterBtn:hover .enterBtnInner {
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:
+    0 0 0 1px rgba(236,72,153,0.4),
+    0 14px 44px rgba(147,51,234,0.65),
+    0 6px 24px rgba(236,72,153,0.4);
+}
+.enterBtnGlow {
+  position:absolute; inset:-4px; border-radius:54px; z-index:0;
+  background:linear-gradient(135deg,#9333ea,#ec4899,#f59e0b);
+  background-size:200%;
+  filter:blur(12px); opacity:0.45;
+  animation:btnGrad 3s ease infinite;
+}
+
+.hint {
+  font-size:12px; color:rgba(255,255,255,0.3); letter-spacing:0.5px;
+  animation: fadeUp 0.5s ease 1.2s both;
+}
+
+@media(max-width:480px){
+  .content{padding:32px 16px;}
+  .heartBig{font-size:64px;}
+  .dateRow{flex-direction:column;gap:8px;}
+  .dateDot{display:none;}
+  .enterBtnInner{font-size:16px;padding:16px 40px;}
+}
+
+/* ══ SALAM & WELCOME ══ */
+.salamWrap {
+  margin-bottom: 18px;
+  animation: fadeDown 0.6s ease 0.55s both;
+}
+.salam {
+  font-size: 16px; font-weight: 700;
+  color: #fcd34d;
+  text-shadow: 0 0 16px rgba(252,211,77,0.4);
+  margin-bottom: 6px; letter-spacing: 0.5px;
+}
+.welcome {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* ══ TAP HINT ══ */
+.tapWrap {
+  position: relative;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 20px auto 8px;
+}
+.tapIcon {
+  font-size: 28px; position: relative; z-index: 2;
+  animation: tapBounce 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(236,72,153,0.6));
+}
+@keyframes tapBounce {
+  0%,100% { transform: translateY(0) scale(1);    opacity: 1;   }
+  40%     { transform: translateY(-8px) scale(1.1); opacity: 0.8; }
+  60%     { transform: translateY(-4px) scale(1.05);opacity: 0.9; }
+}
+.tapRing {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(236,72,153,0.7);
+  animation: tapExpand 1.8s ease-out infinite;
+}
+.tapRing2 {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(147,51,234,0.5);
+  animation: tapExpand 1.8s ease-out infinite 0.5s;
+}
+.tapRing3 {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px solid rgba(249,168,212,0.35);
+  animation: tapExpand 1.8s ease-out infinite 1s;
+}
+@keyframes tapExpand {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0;   }
+}
+.tapText {
+  font-size: 13px; color: rgba(255,255,255,0.45);
+  letter-spacing: 1px; text-align: center;
+  animation: tapTextBlink 2s ease-in-out infinite;
+  margin-bottom: 8px;
+}
+@keyframes tapTextBlink {
+  0%,100% { opacity: 0.45; }
+  50%     { opacity: 0.9;  }
+}
