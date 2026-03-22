@@ -202,7 +202,7 @@
 }
 .enterBtnInner {
   display:block; position:relative; z-index:1;
-  font-family:'Noto Serif Bengali',serif;
+  font-family:'Hind Siliguri','Noto Serif Bengali',sans-serif;
   font-size:18px; font-weight:700;
   padding:18px 52px; border-radius:50px;
   background:linear-gradient(135deg,#9333ea,#ec4899,#f59e0b);

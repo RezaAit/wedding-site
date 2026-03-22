@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import styles from './Countdown.module.css'
 
-const TARGET = new Date('2026-03-23T12:30:00')
+const TARGET = new Date('2026-03-23T00:00:00')
 
 export default function Countdown() {
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0, done: false })
@@ -28,7 +28,7 @@ export default function Countdown() {
   }, [])
 
   if (time.done) {
-    return <div className={styles.done}>🎉 আজই শুভ বিবাহ!</div>
+    return <div className={styles.done}>💍 আজই শুভ বিবাহ! রোকন ❤ ইভা</div>
   }
 
   const boxes = [

@@ -20,7 +20,7 @@
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field label { font-size: 13px; font-weight: 700; color: #9333ea; letter-spacing: 0.4px; }
 .field input, .field select, .field textarea {
-  font-family: 'Noto Serif Bengali', serif; font-size: 14px;
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif; font-size: 14px;
   padding: 12px 16px; border: 1.5px solid rgba(147,51,234,0.18);
   border-radius: 12px; background: #fdf4ff; color: #1e0533;
   outline: none; resize: none; transition: border-color 0.2s, box-shadow 0.2s;
@@ -33,7 +33,7 @@
 .field input:disabled, .field select:disabled, .field textarea:disabled { opacity: 0.6; }
 
 .btn {
-  font-family: 'Noto Serif Bengali', serif; font-size: 16px; font-weight: 700;
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif; font-size: 16px; font-weight: 700;
   padding: 16px; border-radius: 50px; border: none; cursor: pointer;
   background: linear-gradient(135deg, #9333ea, #ec4899);
   color: #fff; box-shadow: 0 4px 24px rgba(147,51,234,0.35);
@@ -162,7 +162,7 @@
   animation: slideUp 0.4s ease 0.6s both;
 }
 .popupWaBtn {
-  font-family: 'Noto Serif Bengali', serif; font-size: 15px; font-weight: 700;
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif; font-size: 15px; font-weight: 700;
   padding: 14px; border-radius: 50px; border: none; cursor: pointer;
   background: linear-gradient(135deg, #075E54, #128C7E); color: #fff;
   box-shadow: 0 4px 20px rgba(7,94,84,0.3);
@@ -170,7 +170,7 @@
 }
 .popupWaBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(7,94,84,0.4); }
 .popupCloseBtn {
-  font-family: 'Noto Serif Bengali', serif; font-size: 14px; font-weight: 700;
+  font-family: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif; font-size: 14px; font-weight: 700;
   padding: 12px; border-radius: 50px; cursor: pointer;
   background: transparent; color: #9333ea;
   border: 1.5px solid rgba(147,51,234,0.3);

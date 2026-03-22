@@ -53,8 +53,7 @@ export default function SplashScreen() {
 
         {/* Salam & Welcome */}
         <div className={styles.salamWrap}>
-          <p className={styles.salam}>আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ 🤲</p>
-          <p className={styles.welcome}>আমাদের বিবাহ অনুষ্ঠানের ওয়েবসাইটে আপনাকে স্বাগতম</p>
+          <p className={styles.salam}>আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ 🤲</p>         
         </div>
 
         {/* Ornament */}
@@ -108,7 +107,7 @@ export default function SplashScreen() {
           <span className={styles.enterBtnGlow}/>
         </button>
 
-        <p className={styles.hint}>🎵 প্রবেশ করলে নাশিদ বাজবে</p>
+     
 
         {/* Tap anywhere hint */}
         <div className={styles.tapWrap}>
@@ -117,7 +116,7 @@ export default function SplashScreen() {
           <div className={styles.tapRing3}/>
           <span className={styles.tapIcon}>👆</span>
         </div>
-        <p className={styles.tapText}>যেকোনো জায়গায় ট্যাপ করুন</p>
+       
 
       </div>
     </div>

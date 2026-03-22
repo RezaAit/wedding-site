@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase, type Dua } from '@/lib/supabase'
 import styles from './DuaSection.module.css'
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 20
 
 const TEMPLATES = [
   'বারাকাল্লাহু লাকা, ওয়া বারাকা \'আলাইকা, ওয়া জামা\'আ বাইনাকুমা ফি খাইর।',

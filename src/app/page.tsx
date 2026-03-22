@@ -363,14 +363,14 @@ export default function Home() {
             <div className={styles.honorRing2}/>
           </div>
           <h2 className={styles.honorName}>মো: রুহুল আমিন</h2>
-          <p className={styles.honorRelation}>বরের পিতার বড় ভাই (চাচা)</p>
+          <p className={styles.honorRelation}>বরের পিতার বড় ভাই</p>
           <div className={styles.honorDivider}>
             <span/><span className={styles.honorDiamond}/><span/>
           </div>
           <p className={styles.honorMsg}>
-            আমাদের পরিবারের শ্রদ্ধেয় বড় ভাই মো: রুহুল আমিন চাচার
-            আন্তরিক উপস্থিতি ও দোয়া আমাদের এই শুভ অনুষ্ঠানকে
-            পরিপূর্ণ করেছে। আল্লাহ তাঁকে দীর্ঘ ও সুস্থ জীবন দান করুন।
+           আমাদের পরিবারের শ্রদ্ধেয় বড় ভাই মোঃ রুহুল আমিন বড় আব্বার
+মহানুভব উপস্থিতি ও হৃদয়স্পর্শী দোয়া এই শুভ আয়োজনকে করেছে পরিপূর্ণ ও স্মরণীয়।
+আল্লাহ তাআলা তাঁকে সুস্বাস্থ্য, দীর্ঘায়ু ও নেক আমলে ভরপুর জীবন দান করুন।
           </p>
           <div className={styles.honorDua}>
             اللَّهُمَّ بَارِكْ فِيهِ وَأَكْرِمْهُ

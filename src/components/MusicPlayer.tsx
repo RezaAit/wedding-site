@@ -62,7 +62,7 @@ export default function MusicPlayer() {
         <span className={`${styles.note} ${playing && !muted ? styles.noteAnimate : ''}`}>🎵</span>
       </div>
       <div className={styles.info}>
-        <span className={styles.title}>Nasheed</span>
+        <span className={styles.title}>Wedding Nasheed</span>
         <span className={styles.sub}>{!playing?'Paused':muted?'🔇 Muted':'▶ Playing'}</span>
       </div>
       <button className={styles.btn} onClick={togglePlay}>{playing?'⏸':'▶'}</button>

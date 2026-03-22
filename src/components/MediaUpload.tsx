@@ -90,14 +90,7 @@ export default function MediaUpload() {
   }
 
   return (
-    <div className={styles.wrap}>
-      <div className={styles.uploadNote}>
-        <span className={styles.uploadNoteIcon}>📸</span>
-        <div>
-          <p className={styles.uploadNoteTitle}>ছবি upload করলে সরাসরি <strong>ফটো গ্যালারি</strong>-তে দেখাবে</p>
-          <p className={styles.uploadNoteSub}>ছবি এখানে দেখাবে না — শুধু Gallery section-এ</p>
-        </div>
-      </div>
+    <div className={styles.wrap}>  
 
       <div
         className={`${styles.dropZone} ${dragOver?styles.dragOver:''} ${uploading?styles.uploading:''}`}

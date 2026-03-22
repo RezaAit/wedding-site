@@ -57,3 +57,21 @@ Settings → API → `anon public` key কপি করুন
 Vercel Dashboard → Project → Settings → Environment Variables:
 - NEXT_PUBLIC_SUPABASE_URL
 - NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+## RSVP Table (নতুন — SQL Editor-এ চালান)
+
+```sql
+create table if not exists rsvp (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  phone text not null,
+  guests integer default 1,
+  relation text,
+  message text,
+  created_at timestamptz default now()
+);
+
+alter table rsvp enable row level security;
+create policy "public read"   on rsvp for select using (true);
+create policy "public insert" on rsvp for insert with check (true);
+```

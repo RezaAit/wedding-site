@@ -571,7 +571,7 @@
   display: block;
   font-size: clamp(32px, 7vw, 54px);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.5;
   background: linear-gradient(270deg, #fcd34d, #fb923c, #f472b6, #e879f9, #f472b6, #fcd34d);
   background-size: 300% 300%;
   -webkit-background-clip: text;
