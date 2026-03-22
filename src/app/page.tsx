@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import MusicPlayer from '@/components/MusicPlayer'
 import HonorAvatar from '@/components/HonorAvatar'
 import SplashScreen from '@/components/SplashScreen'
+import ScrollAnimation from '@/components/ScrollAnimation'
 
 const EVENTS = [
   { icon:'🌿', name:'গায়ে হলুদ',  date:'২১ মার্চ ২০২৬', bn:'৭ চৈত্র ১৪৩২',  day:'রোজ: শনিবার',  time:'বিকাল ৪:০০ টা', color:'haldi' },
@@ -159,7 +160,7 @@ export default function Home() {
         <SectionHead title="বর ও কনের পরিচয়" icon="🌹"/>
         <div className={styles.coupleGrid}>
 
-          <div className={styles.personCard}>
+          <ScrollAnimation animation="fadeInLeft" delay={100}><div className={styles.personCard}>
             <div className={styles.personRing}><span>🤵</span></div>
             <span className={`${styles.badge} ${styles.badgeGroom}`}>বর বেশে</span>
             <h3 className={styles.personName}>মোঃ রোকন হাসান</h3>
@@ -169,17 +170,17 @@ export default function Home() {
               <li><span>মাতা</span> মোছাঃ রেহানা বেগম</li>
               <li><span>ঠিকানা</span> আশ্রমপাড়া, ঠাকুরগাঁও সদর, ঠাকুরগাঁও</li>
             </ul>
-          </div>
+          </div></ScrollAnimation>
 
-          <div className={styles.coupleCenter}>
+          <ScrollAnimation animation="zoomIn" delay={200}><div className={styles.coupleCenter}>
             <div className={styles.coupleHeartWrap}>
               <span className={styles.coupleHeart}>❤</span>
               <span className={styles.coupleRing1}/>
               <span className={styles.coupleRing2}/>
             </div>
-          </div>
+          </div></ScrollAnimation>
 
-          <div className={styles.personCard}>
+          <ScrollAnimation animation="fadeInRight" delay={100}><div className={styles.personCard}>
             <div className={`${styles.personRing} ${styles.personRingBride}`}><span>👰</span></div>
             <span className={`${styles.badge} ${styles.badgeBride}`}>কনে সেজে</span>
             <h3 className={styles.personName}>জাকিয়া সুলতানা ইভা</h3>
@@ -189,7 +190,7 @@ export default function Home() {
               <li><span>মাতা</span> আকলিমা বেগম</li>
               <li><span>ঠিকানা</span> ভোলাডাঙ্গা বাজার, মহেশপুর, ঝিনাইদহ</li>
             </ul>
-          </div>
+          </div></ScrollAnimation>
 
         </div>
       </section>
@@ -199,16 +200,21 @@ export default function Home() {
         <SectionHead title="অনুষ্ঠান সূচি" icon="💍" dark/>
         <div className={styles.eventTimeline}>
           {EVENTS.map((ev,i)=>(
-            <div key={i} className={`${styles.eventItem} ${styles[`event_${ev.color}`]}`}>
+            <ScrollAnimation key={i} animation="fadeInLeft" delay={i*150}><div className={`${styles.eventItem} ${styles[`event_${ev.color}`]}`}>
               <div className={styles.eventNum}>{i+1}</div>
               <div className={styles.eventBody}>
-                <div className={styles.eventIcon}>{ev.icon}</div>
-                <h3 className={styles.eventName}>{ev.name}</h3>
-                <p className={styles.eventDateMain}>{ev.date}</p>
-                <p className={styles.eventDateSub}>{ev.bn} · {ev.day}</p>
+                <div className={styles.eventHeader}>
+                  <span className={styles.eventIcon}>{ev.icon}</span>
+                  <h3 className={styles.eventName}>{ev.name}</h3>
+                </div>
+                <div className={styles.eventMeta}>
+                  <span className={styles.eventDateMain}>{ev.date}</span>
+                  <span className={styles.eventMetaDot}>·</span>
+                  <span className={styles.eventDateSub}>{ev.bn} · {ev.day}</span>
+                </div>
                 {ev.time&&<p className={styles.eventTime}>⏰ {ev.time}</p>}
               </div>
-            </div>
+            </div></ScrollAnimation>
           ))}
         </div>
       </section>
@@ -216,7 +222,7 @@ export default function Home() {
       {/* ════ VENUE ════ */}
       <section id="venue" className={`${styles.section} ${styles.venueSection}`}>
         <SectionHead title="অনুষ্ঠানের স্থান" icon="📍"/>
-        <div className={styles.venueCard}>
+        <ScrollAnimation animation="zoomInUp" delay={100}><div className={styles.venueCard}>
           <div className={styles.venueBadge}>🏛</div>
           <h3 className={styles.venueName}>হাওলাদার কমিউনিটি সেন্টার</h3>
           <p className={styles.venueAddress}>আশ্রমপাড়া, ঠাকুরগাঁও সদর, ঠাকুরগাঁও</p>
@@ -250,28 +256,28 @@ export default function Home() {
              target="_blank" rel="noopener noreferrer" className={styles.mapBtn}>
             📍 Google Maps-এ রাস্তা দেখুন
           </a>
-        </div>
+        </div></ScrollAnimation>
       </section>
 
       {/* ════ GALLERY ════ */}
       <section id="gallery" className={`${styles.section} ${styles.gallerySection}`}>        <SectionHead title="ফটো গ্যালারি" icon="📸" dark/>
       
-        <Gallery/>
+        <ScrollAnimation animation="zoomIn" delay={100}><Gallery/></ScrollAnimation>
       </section>
 
       {/* ════ MEDIA UPLOAD ════ */}
       <section className={`${styles.section} ${styles.mediaSection}`}>
         <SectionHead title="ছবি ও ভিডিও শেয়ার করুন" icon="🎬" dark/>
-        <p className={styles.mediaSub}>
+        <ScrollAnimation animation="fadeInUp" delay={100}><p className={styles.mediaSub}>
           আপনার তোলা ছবি ও ভিডিও upload করুন অথবা YouTube / Facebook লিংক যোগ করুন
-        </p>
-        <MediaUpload/>
+        </p></ScrollAnimation>
+        <ScrollAnimation animation="fadeInUp" delay={200}><MediaUpload/></ScrollAnimation>
       </section>
 
       {/* ════ INVITE ════ */}
       <section className={`${styles.section} ${styles.inviteSection}`}>
         <SectionHead title="আমন্ত্রণপত্র" icon="💌" dark/>
-        <div className={styles.inviteCard}>
+        <ScrollAnimation animation="zoomIn" delay={100}><div className={styles.inviteCard}>
           <p className={styles.inviteSalute}>জনাব/জনাবা,</p>
           <p className={styles.inviteGreet}>আসসালামু আলাইকুম,</p>
           <p className={styles.inviteBody}>
@@ -300,23 +306,23 @@ export default function Home() {
               <p className={styles.inviteName}>মোছাঃ রেহানা বেগম</p>
             </div>
           </div>
-        </div>
+        </div></ScrollAnimation>
       </section>
 
       {/* ════ DUA ════ */}
       <section id="dua" className={`${styles.section} ${styles.duaSection}`}>
         <SectionHead title="দোয়া ও শুভেচ্ছা" icon="🤲" dark/>
-        <p className={styles.duaSub}>
+        <ScrollAnimation animation="fadeInUp" delay={100}><p className={styles.duaSub}>
           নবদম্পতির জন্য আপনার দোয়া ও শুভেচ্ছা জানান
-        </p>
-        <DuaSection/>
+        </p></ScrollAnimation>
+        <ScrollAnimation animation="fadeInUp" delay={200}><DuaSection/></ScrollAnimation>
       </section>
 
       {/* ════ RSVP ════ */}
       <section id="rsvp" className={`${styles.section} ${styles.rsvpSection}`}>
         <SectionHead title="উপস্থিতি নিশ্চিত করুন (RSVP)" icon="✉️"/>
-        <p className={styles.rsvpIntro}>আপনার আগমন সম্পর্কে আগে থেকে জানালে আমরা আপনার জন্য যথাযথ ব্যবস্থা নিতে পারব</p>
-        <RSVP/>
+        <ScrollAnimation animation="fadeInUp" delay={100}><p className={styles.rsvpIntro}>আপনার আগমন সম্পর্কে আগে থেকে জানালে আমরা আপনার জন্য যথাযথ ব্যবস্থা নিতে পারব</p></ScrollAnimation>
+        <ScrollAnimation animation="zoomInUp" delay={200}><RSVP/></ScrollAnimation>
       </section>
 
       {/* ════ CONTACT ════ */}
@@ -324,7 +330,7 @@ export default function Home() {
         <SectionHead title="যোগাযোগ করুন" icon="📞" dark/>
         <div className={styles.contactGrid}>
           {CONTACTS.map((c,i)=>(
-            <div key={i} className={styles.contactCard}>
+            <ScrollAnimation key={i} animation="fadeInUp" delay={i*120}><div className={styles.contactCard}>
               <div className={styles.contactTop}>
                 <div className={styles.contactAvatar}>
                   {['👨','👨‍💼','🤵'][i] || '👤'}
@@ -338,7 +344,7 @@ export default function Home() {
                 <a href={`tel:${c.phone}`} className={styles.callBtn}>📞 Call</a>
                 <a href={`https://wa.me/88${c.phone}`} target="_blank" rel="noopener noreferrer" className={styles.waBtn}>💬 WhatsApp</a>
               </div>
-            </div>
+            </div></ScrollAnimation>
           ))}
         </div>
       </section>
@@ -346,7 +352,7 @@ export default function Home() {
       {/* ════ SPECIAL HONOR ════ */}
       <section className={`${styles.section} ${styles.honorSection}`}>
         <SectionHead title="বিশেষ সম্মাননা" icon="🌟" dark/>
-        <div className={styles.honorCard}>
+        <ScrollAnimation animation="zoomIn" delay={100}><div className={styles.honorCard}>
           <div className={styles.honorStars}>
             {['⭐','✨','🌟','✨','⭐'].map((s,i) => (
               <span key={i} className={styles.honorStar}
@@ -373,11 +379,11 @@ export default function Home() {
             اللَّهُمَّ بَارِكْ فِيهِ وَأَكْرِمْهُ
           </div>
           <p className={styles.honorDuaBn}>হে আল্লাহ! তাঁকে বরকত দিন এবং সম্মানিত করুন।</p>
-        </div>
+        </div></ScrollAnimation>
       </section>
 
       {/* ════ FOOTER ════ */}
-      <footer className={styles.footer}>
+      <ScrollAnimation animation="fadeIn" delay={100}><footer className={styles.footer}>
         <div className={styles.footerOrnament}>
           <span/><span className={styles.footerDiamond}/><span/>
         </div>
@@ -387,6 +393,7 @@ export default function Home() {
         <p className={styles.footerDua}>আল্লাহ্ তাদের সংসারকে সুখময় করুন — আমিন 🤲</p>
       </footer>
 
+      </ScrollAnimation>
       <MusicPlayer/>
     </main>
   )
