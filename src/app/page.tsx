@@ -254,11 +254,8 @@ export default function Home() {
       </section>
 
       {/* ════ GALLERY ════ */}
-      <section id="gallery" className={`${styles.section} ${styles.gallerySection}`}>
-        <SectionHead title="ফটো গ্যালারি" icon="📸" dark/>
-        <p className={styles.galleryNote}>
-          ছবি যোগ করতে <code>src/components/Gallery.tsx</code> এর <code>PHOTOS</code> array-এ src দিন
-        </p>
+      <section id="gallery" className={`${styles.section} ${styles.gallerySection}`}>        <SectionHead title="ফটো গ্যালারি" icon="📸" dark/>
+      
         <Gallery/>
       </section>
 
