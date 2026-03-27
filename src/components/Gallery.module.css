@@ -46,20 +46,29 @@
 
 /* Lightbox */
 .lightbox{
-  position:fixed;inset:0;background:rgba(10,4,18,0.95);z-index:1000;
+  position:fixed;inset:0;background:rgba(10,4,18,0.95);z-index:9999;
   display:flex;align-items:center;justify-content:center;
+  padding:60px 16px 16px;
   animation:lbIn 0.2s ease;
 }
 @keyframes lbIn{from{opacity:0}to{opacity:1}}
 .close{
-  position:absolute;top:20px;right:24px;
-  background:rgba(255,255,255,0.08);border:1.5px solid rgba(236,72,153,0.3);
+  position:fixed;top:16px;right:16px;
+  background:rgba(255,255,255,0.1);border:1.5px solid rgba(236,72,153,0.3);
   color:#fff;width:40px;height:40px;border-radius:50%;font-size:16px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;transition:background 0.2s;
+  z-index:10000;
 }
 .close:hover{background:rgba(236,72,153,0.25);}
-.lbInner{max-width:90vw;max-height:88vh;text-align:center;}
-.lbImg{max-width:100%;max-height:82vh;border-radius:14px;object-fit:contain;}
+.lbInner{
+  align-items:center;justify-content:center;
+  width:100%;height:100%;
+}
+.lbImg{
+  max-width:100%;max-height:100%;
+  border-radius:12px;object-fit:contain;
+  box-shadow:0 8px 40px rgba(0,0,0,0.6);
+}
 .lbCaption{color:rgba(255,255,255,0.6);margin-top:10px;font-size:13px;}
 
 /* Loader */
@@ -92,4 +101,3 @@
 .btnDot:nth-child(2){animation-delay:0.2s;}
 .btnDot:nth-child(3){animation-delay:0.4s;}
 @keyframes btnBounce{0%,80%,100%{transform:scale(0.7);opacity:0.4}40%{transform:scale(1);opacity:1}}
-
